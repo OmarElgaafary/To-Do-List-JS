@@ -1,0 +1,87 @@
+body {
+    position: relative;
+    margin: 0px;
+    font-family: "Funnel Sans", sans-serif;
+    ;
+}
+
+p {
+    margin: 0px;
+    color: rgb(50, 50, 50);
+}
+
+.to-do-header {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 25px;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 100%;
+
+}
+
+.to-do-title {
+    font-size: 35px;
+    font-weight: 700;
+    color: rgb(50, 50, 50);
+}
+
+.to-do-bar-div {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+}
+
+.to-do-search-bar {
+    flex: 1;
+    border: none;
+    border-bottom: 3px solid rgb(150, 150, 150);
+    padding-left: 10px;
+}
+
+.to-do-search-bar:focus {
+    outline: none;
+}
+
+.to-do-add-button {
+    background-color: rgb(50, 50, 50);
+    color: white;
+    border: 0px solid transparent;
+    border-radius: 12.5px;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.to-do-items-div {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 25px;
+}
+
+.to-do-item {
+    display: grid;
+    grid-template-columns: 25px 1fr 50px;
+    height: 50px;
+    border: 1px solid rgb(150, 150, 150);
+    vertical-align:middle;
+
+}
+
+.to-do-item-p {
+    padding-top: 15px;
+}
+
+.to-do-checkbox
+{
+    display: inline;
+}
+
+.to-do-delete
+{
+    background-color: white;
+    border: none;
+}
