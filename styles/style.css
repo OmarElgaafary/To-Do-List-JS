@@ -6,6 +6,7 @@ body {
 }
 
 p {
+    display: inline-block;
     margin: 0px;
     color: rgb(50, 50, 50);
 }
@@ -60,28 +61,42 @@ p {
     display: grid;
     grid-template-rows: 1fr;
     gap: 25px;
+    height: 65px;
+    border-radius: 20px;
 }
 
 .to-do-item {
     display: grid;
-    grid-template-columns: 25px 1fr 50px;
+    grid-template-columns: 45px 1fr 50px;
     height: 50px;
     border: 1px solid rgb(150, 150, 150);
     vertical-align:middle;
+    height: 100%;
+    border-radius: 20px;
 
 }
 
 .to-do-item-p {
-    padding-top: 15px;
+    padding: 20px 0px;
+    margin-left: 10px;
 }
 
 .to-do-checkbox
 {
-    display: inline;
+    margin-left: 20px;
+    color:black;
+    accent-color: gray;
+}
+
+.to-do-checkbox:checked
+{
+
 }
 
 .to-do-delete
 {
     background-color: white;
     border: none;
+    height: 100%;
+    border-radius: 30px;
 }
