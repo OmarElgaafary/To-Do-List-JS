@@ -100,7 +100,7 @@ p {
 }
 
 .to-do-item-outer-div:hover {
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .to-do-remaining-p {
