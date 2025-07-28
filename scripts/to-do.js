@@ -3,10 +3,9 @@ const toDoItemContainer = document.querySelector('.to-do-items-div');
 const toDoSearchBar = document.querySelector('.to-do-search-bar');
 const toDoAddButton = document.querySelector('.to-do-add-button');
 
-let toDos = [{
-    text: 'mytodo',
-    id: '123'
-}];
+
+
+let toDos = JSON.parse(localStorage.getItem('to-do-list')) || [];
 
 
 
@@ -32,6 +31,7 @@ function addToDo() {
             })
         }
         renderToDos();
+        saveLocalStorage();
     });
 }
 
@@ -56,8 +56,13 @@ function deleteToDo() {
             const toDoDeleteID = toDoDeleteButton[i].dataset.id;
             toDos = toDos.filter(toDo => toDo.id !== toDoDeleteID);
             renderToDos();
+            saveLocalStorage();
         })
     }
+}
+
+function saveLocalStorage() {
+    localStorage.setItem('to-do-list', JSON.stringify(toDos));
 }
 renderToDos();
 generateToDoId();
