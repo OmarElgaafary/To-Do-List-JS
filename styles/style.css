@@ -68,10 +68,9 @@ p {
 .to-do-item {
     display: grid;
     grid-template-columns: 45px 1fr 50px;
-    height: 50px;
+    height: 65px;
     border: 1px solid rgb(150, 150, 150);
     vertical-align:middle;
-    height: 100%;
     border-radius: 20px;
 
 }
@@ -99,4 +98,21 @@ p {
     border: none;
     height: 100%;
     border-radius: 30px;
+}
+
+.to-do-item-outer-div
+{
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.to-do-item-outer-div:hover
+{
+    overflow: scroll;
+}
+
+.to-do-remaining-p{
+    font-weight: 500;
+    font-style: italic;
 }
