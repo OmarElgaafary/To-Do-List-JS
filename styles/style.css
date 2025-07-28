@@ -70,7 +70,7 @@ p {
     grid-template-columns: 45px 1fr 50px;
     height: 65px;
     border: 1px solid rgb(150, 150, 150);
-    vertical-align:middle;
+    vertical-align: middle;
     border-radius: 20px;
 
 }
@@ -80,39 +80,42 @@ p {
     margin-left: 10px;
 }
 
-.to-do-checkbox
-{
+.to-do-checkbox {
     margin-left: 20px;
-    color:black;
+    color: black;
     accent-color: gray;
 }
 
-.to-do-checkbox:checked
-{
-
-}
-
-.to-do-delete
-{
+.to-do-delete {
     background-color: white;
     border: none;
     height: 100%;
     border-radius: 30px;
 }
 
-.to-do-item-outer-div
-{
+.to-do-item-outer-div {
     height: 400px;
     width: 100%;
     overflow: hidden;
 }
 
-.to-do-item-outer-div:hover
-{
+.to-do-item-outer-div:hover {
     overflow: scroll;
 }
 
-.to-do-remaining-p{
+.to-do-remaining-p {
     font-weight: 500;
     font-style: italic;
+}
+
+.to-do-quote-p,
+.to-do-author-p {
+    font-weight: 200;
+    font-style: italic;
+    font-size: large;
+}
+
+.to-do-author-p {
+    margin-top: 10px;
+    font-weight: 500;
 }

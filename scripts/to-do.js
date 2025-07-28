@@ -5,6 +5,7 @@ const toDoItemContainer = document.querySelector('.to-do-items-div');
 const toDoSearchBar = document.querySelector('.to-do-search-bar');
 const toDoAddButton = document.querySelector('.to-do-add-button');
 const toDoRemaining = document.querySelector('.to-do-remaining');
+const toDoQuoteElem = document.querySelector('.to-do-quote');
 
 let toDos = JSON.parse(localStorage.getItem('to-do-list')) || [];
 
@@ -103,5 +104,35 @@ function renderRemainingToDos() {
 function saveLocalStorage() {
     localStorage.setItem('to-do-list', JSON.stringify(toDos));
 }
+
+async function toDoQuoteAPI() {
+    const url = 'https://api.api-ninjas.com/v1/quotes';
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            withCredentials: 'true',
+            headers: {
+                "x-api-key": "bK4dOX76i5e19FYu3+a24Q==Xg8QeFrrmQuEovGi",
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Response status :${response.status}`)
+        }
+
+        const json = await response.json();
+        // console.log(json[0]);
+        console.log(json[0])
+        toDoQuoteElem.innerHTML = `<p class="to-do-quote-p">${json[0].quote}</p>
+                                    <p class = "to-do-author-p">-${json[0].author}</p>`;
+    }
+    catch (error) {
+        console.log(error.message)
+    }
+}
+
+// toDoQuote();
+toDoQuoteAPI();
 renderToDos();
 addToDo();
