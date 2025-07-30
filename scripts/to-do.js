@@ -53,31 +53,47 @@ function renderToDos() {
 
 function toDoCheckBoxToggle() {
     for (let i = 0; i < toDoCheck.length; i++) {
+        const checkID = toDoCheck[i].dataset.id;
+        const checkObj = (toDos.filter(toDo => toDo.id === checkID))[0];
+        toDoCheck[i].checked = checkObj.checked ? true : false;
         toDoCheck[i].addEventListener('click', () => {
-            const checkID = toDoCheck[i].dataset.id;
-            const checkObj = (toDos.filter(toDo => toDo.id === checkID))[0];
-            if (checkObj.checked)
+            if (checkObj.checked) {
+
                 checkObj.checked = false;
-            else if (!checkObj.checked)
+                toDoCheck[i].checked = false;
+            }
+
+            else if (!checkObj.checked) {
                 checkObj.checked = true;
+                toDoCheck[i].checked = true;
+
+            }
 
             toDoParagraphGetter(checkID, checkObj);
             renderRemainingToDos();
+            saveLocalStorage();
+
         })
+        toDoParagraphGetter(checkID, checkObj);
+
     }
 }
 
 function toDoParagraphGetter(id, obj) {
     for (let i = 0; i < toDoParagraph.length; i++) {
         const paraID = toDoParagraph[i].dataset.id;
-        if (paraID === id && obj.checked) {
+
+        if (paraID !== id) continue;
+
+        if (obj.checked) {
             toDoParagraph[i].style.textDecoration = 'line-through';
             toDoParagraph[i].style.color = 'rgb(150, 150, 150)';
         }
-        else {
+        else if (!obj.checked) {
             toDoParagraph[i].style.textDecoration = 'none';
             toDoParagraph[i].style.color = 'rgb(50, 50, 50)';
         }
+        console.log(obj.checked);
     }
 }
 
@@ -95,7 +111,6 @@ function deleteToDo() {
 
 function renderRemainingToDos() {
     const toDosRemaining = toDos.filter(toDo => toDo.checked === false);
-    console.log(toDosRemaining);
     toDoRemaining.innerHTML = `
     <p class="to-do-remaining-p">Your remaining todos: ${toDosRemaining.length}</p>`
 
@@ -122,7 +137,6 @@ async function toDoQuoteAPI() {
         }
 
         const json = await response.json();
-        // console.log(json[0]);
         console.log(json[0])
         toDoQuoteElem.innerHTML = `<p class="to-do-quote-p">${json[0].quote}</p>
                                     <p class = "to-do-author-p">-${json[0].author}</p>`;
@@ -132,7 +146,6 @@ async function toDoQuoteAPI() {
     }
 }
 
-// toDoQuote();
 toDoQuoteAPI();
 renderToDos();
 addToDo();
